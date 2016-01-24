@@ -1,4 +1,4 @@
-var ResminApp = angular.module('ResminApp', ['ngRoute','ngResource','LocalStorageModule','ngCordova'])
+var ResminApp = angular.module('ResminApp', ['ngRoute','ngResource','LocalStorageModule','ngCordova','afkl.lazyImage'])
     .config(['$routeProvider', '$locationProvider',
         function ($routeProvider, $locationProvider) {
             $locationProvider.hashPrefix('!');
