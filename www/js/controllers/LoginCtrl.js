@@ -3,6 +3,7 @@ ResminApp.controller('LoginCtrl', function LoginCtrl($scope, $route, $location, 
         username: '',
         password: ''
     };
+    $scope.errorReponse = {};
 
     $scope.accessToken = $scope.$root.accessToken;
 
@@ -15,10 +16,11 @@ ResminApp.controller('LoginCtrl', function LoginCtrl($scope, $route, $location, 
                         $scope.$root.accessToken = successResponse.data.access_token;
                         $scope.accessToken = $scope.$root.accessToken;
                         localStorageService.set('accessToken',successResponse.data.access_token);
-                        $location.path('/');
+                        $location.path('/story-list');
                     }
                 },
                 function (errorResponse){
+                    $scope.errorReponse = errorResponse;
                     alert('kullanıcı adı ya da şifre hatalı');
                 }
             );

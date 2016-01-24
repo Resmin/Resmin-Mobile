@@ -18,6 +18,16 @@ ResminApp.controller('StoryDetailCtrl', function StoryDetailCtrl($scope, $route,
         );
     }
 
+    $scope.showOrHide = {
+        commentForm: 'hide'
+    }
+    $scope.showCommentForm = function() {
+        $scope.showOrHide.commentForm = 'show';
+    }
+    $scope.hideCommentForm = function() {
+        $scope.showOrHide.commentForm = 'hide';
+    }
+
     $scope.loadStoryList();
 
 });

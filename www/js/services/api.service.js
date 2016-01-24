@@ -21,6 +21,16 @@ ResminApp.factory('Api', ['$resource','$http',
                 url: url+'story/:id',
                 method:'GET',
                 isArray:false
+            },
+            questionDetail: {
+                url: url+'question/:id',
+                method:'GET',
+                isArray:false
+            },
+            questionStoryList: {
+                url: url+'question/:id/stories',
+                method:'GET',
+                isArray:false
             }
         });
     }]);

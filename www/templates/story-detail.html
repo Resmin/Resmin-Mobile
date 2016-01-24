@@ -1,25 +1,41 @@
 <div class="col-xs-12">
     <div class="item">
-        <h2>{{ item.question_meta.text }}</h2>
+        <h2>
+            <a href="#!/question-detail/{{item.question_meta.id}}">
+                {{ item.question_meta.text }}
+            </a>
+        </h2>
         <h3>Yanıtlayan: {{ item.owner.username }}</h3>
 
         <p>{{ item.description }}</p>
     </div>
 
     <div class="item item-image" ng-repeat="slot in item.slots">
-        <img src="http://resm.in/{{ slot.image.image }}.jpg">
-    </div>
-
-    <div class="item tabs tabs-icon-left">
-        <button class="btn btn-primary btn-sm" type="button">
-            Yorum Yap
-        </button>
+        <img src="http://resm.in/{{ slot.image.image }}" class="img-responsive">
     </div>
 
     <div class="well well-sm" ng-repeat="comment in item.comments">
         <strong>{{comment.owner.username}}</strong><br/>
         {{comment.body}}<br/>
         {{comment.posted_at.date}}
+    </div>
+
+    <div class="well">
+        <button type="button" class="btn btn-info btn-sm" ng-click="showCommentForm()"  ng-show="showOrHide.commentForm == 'hide'">
+            Siz de birşeyler söyleyin madem.
+        </button>
+
+        <div ng-show="showOrHide.commentForm == 'show'">
+            <div class="form-group">
+                <label class="control-label">Yorumunuzu Yazsanız İyi Edersiniz</label>
+                <textarea class="form-control"></textarea>
+            </div>
+            <div class="form-group">
+                <button type="button" class="btn btn-sm btn-success">Yorumu Gönder</button>
+                <button type="button" class="btn btn-sm btn-info" ng-click="hideCommentForm()" >Vazgeçtim</button>
+            </div>
+        </div>
+
     </div>
 
 </div>

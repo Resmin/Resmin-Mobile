@@ -1,4 +1,4 @@
-var ResminApp = angular.module('ResminApp', ['ngRoute','ngResource','LocalStorageModule'])
+var ResminApp = angular.module('ResminApp', ['ngRoute','ngResource','LocalStorageModule','ngCordova'])
     .config(['$routeProvider', '$locationProvider',
         function ($routeProvider, $locationProvider) {
             $locationProvider.hashPrefix('!');
@@ -17,6 +17,11 @@ var ResminApp = angular.module('ResminApp', ['ngRoute','ngResource','LocalStorag
                     templateUrl: 'templates/story-detail.html',
                     controller: 'StoryDetailCtrl',
                     controllerAs: 'storyDetailCtrl'
+                })
+                .when('/question-detail/:id', {
+                    templateUrl: 'templates/question-detail.html',
+                    controller: 'QuestionDetailCtrl',
+                    controllerAs: 'questionDetailCtrl'
                 })
                 .otherwise({
                     templateUrl: 'templates/index.html',
