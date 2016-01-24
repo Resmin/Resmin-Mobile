@@ -11,6 +11,16 @@ ResminApp.factory('Api', ['$resource','$http',
                 url: url+'auth/logout',
                 method:'POST',
                 isArray:false
+            },
+            storyList: {
+                url: url+'story',
+                method:'GET',
+                isArray:false
+            },
+            storyDetail: {
+                url: url+'story/:id',
+                method:'GET',
+                isArray:false
             }
         });
     }]);

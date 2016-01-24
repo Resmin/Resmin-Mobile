@@ -11,6 +11,10 @@ ResminApp.controller('AppCtrl', function AppCtrl($rootScope, $route, $window, $l
         }
     }else{
         //we must check access token is valid
+        //assume that it is valid
+        if ($location.path() == '/' || $location.path() == '' ) {
+            $location.path('/story-list');
+        }
     }
 
 });

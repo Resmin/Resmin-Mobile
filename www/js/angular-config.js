@@ -8,10 +8,15 @@ var ResminApp = angular.module('ResminApp', ['ngRoute','ngResource','LocalStorag
                     controller: 'LoginCtrl',
                     controllerAs: 'loginCtrl'
                 })
-                .when('#!/test', {
-                    templateUrl: 'templates/chapter.html',
-                    controller: 'ChapterCtrl',
-                    controllerAs: 'chapter'
+                .when('/story-list', {
+                    templateUrl: 'templates/story-list.html',
+                    controller: 'StoryListCtrl',
+                    controllerAs: 'storyListCtrl'
+                })
+                .when('/story-detail/:id', {
+                    templateUrl: 'templates/story-detail.html',
+                    controller: 'StoryDetailCtrl',
+                    controllerAs: 'storyDetailCtrl'
                 })
                 .otherwise({
                     templateUrl: 'templates/index.html',

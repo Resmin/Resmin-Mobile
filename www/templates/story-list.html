@@ -1,0 +1,26 @@
+<div class="col-xs-12" ng-repeat="item in list.data">
+    <div class="item">
+        <h2>{{ item.question_meta.text }}</h2>
+
+        <p>{{ item.description }}</p>
+    </div>
+
+    <div class="item item-image">
+        <a href="#!/story-detail/{{item.id}}" class="thumbnail">
+            <img src="http://resm.in{{ item.cover_img.url }}">
+        </a>
+    </div>
+
+    <div class="item tabs tabs-icon-left">
+        <button class="btn btn-primary btn-sm" type="button">
+            Yorum <span class="badge">{{ item.comment_count }}</span>
+        </button>
+        <button class="btn btn-danger btn-sm" type="button">
+            Beğen <span class="badge">{{ item.comment_count }}</span>
+        </button>
+        <a href="#!/story-detail/{{item.id}}" class="btn btn-success btn-sm">
+            Görüntüle <span class="glyphicon glyphicon-play-circle"></span>
+        </a>
+    </div>
+
+</div>
