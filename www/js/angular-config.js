@@ -1,4 +1,4 @@
-var ResminApp = angular.module('ResminApp', ['ngRoute','ngResource'])
+var ResminApp = angular.module('ResminApp', ['ngRoute','ngResource','LocalStorageModule'])
     .config(['$routeProvider', '$locationProvider',
         function ($routeProvider, $locationProvider) {
             $locationProvider.hashPrefix('!');
@@ -19,4 +19,13 @@ var ResminApp = angular.module('ResminApp', ['ngRoute','ngResource'])
                 });
 
             //$locationProvider.html5Mode(true);
-        }]);
+        }])
+    .config(['$resourceProvider', function($resourceProvider) {
+        // Don't strip trailing slashes from calculated URLs
+        $resourceProvider.defaults.stripTrailingSlashes = false;
+    }]).config(function (localStorageServiceProvider) {
+        localStorageServiceProvider
+            //.setStorageType('sessionStorage')
+            .setStorageType('localStorage')
+            .setPrefix('ResminApp');
+    });
