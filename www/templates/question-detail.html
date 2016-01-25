@@ -1,13 +1,24 @@
 <div class="col-xs-12">
     <h1>{{item.text}}</h1>
 
-    <button type="button" class="btn btn-success">
+    <button type="button" class="btn btn-success" ng-click="tookPhoto()">
         <span class="glyphicon glyphicon-camera"></span>
         Yanıtla
     </button>
 </div>
 <div class="col-xs-12">
-    <div class="well" ng-repeat="story in list.data">
+    <div class="well" ng-if="uploadPreview">
+
+        <img src="{{imagePath}}" width="200" class="img-responsive">
+
+        <p>
+            <button type="button" class="btn btn-success">GÖNDER</button>
+            <button type="button" class="btn btn-danger" ng-click="cancelUpload()">vazgeçtim göndermicem</button>
+        </p>
+
+
+    </div>
+    <div class="well" ng-repeat="story in list.data" ng-if="!uploadPreview">
         <div class="item">
             <p>{{ story.description }}</p>
         </div>
